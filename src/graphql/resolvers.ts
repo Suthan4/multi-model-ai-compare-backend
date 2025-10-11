@@ -1,6 +1,7 @@
 import { comparisonService } from "../services/comparision.service";
 import { MODEL_INFO } from "../constants/models";
 import { GraphQLError, GraphQLScalarType, Kind } from "graphql";
+import { FRONTEND_URL } from "../constants/env";
 
 const JSONScalar = new GraphQLScalarType({
   name: "JSON",
@@ -34,11 +35,11 @@ export const resolvers = {
 
     comparisons: async () => {
       const getAllComparisions = await comparisonService.getAllComparison();
-        if (!getAllComparisions || getAllComparisions.length === 0) {
-          throw new GraphQLError("No comparisons found", {
-            extensions: { code: "NOT_FOUND" },
-          });
-        }
+      if (!getAllComparisions || getAllComparisions.length === 0) {
+        throw new GraphQLError("No comparisons found", {
+          extensions: { code: "NOT_FOUND" },
+        });
+      }
       return getAllComparisions;
     },
 
@@ -96,9 +97,7 @@ export const resolvers = {
       const shareId = await comparisonService.shareComparison(id);
       return {
         shareId,
-        shareUrl: `${
-          process.env.FRONTEND_URL || "http://localhost:3000"
-        }/share/${shareId}`,
+        shareUrl: `${FRONTEND_URL}/share/${shareId}`,
       };
     },
 

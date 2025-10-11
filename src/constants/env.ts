@@ -18,3 +18,4 @@ export const API_VERSION = getEnv("API_VERSION");
 export const RATE_LIMIT_WINDOW_MS = getEnv("RATE_LIMIT_WINDOW_MS");
 export const RATE_LIMIT_MAX_REQUESTS = getEnv("RATE_LIMIT_MAX_REQUESTS");
 export const GROQ_API_KEY = getEnv("GROQ_API_KEY");
+export const FRONTEND_URL = getEnv("FRONTEND_URL");
