@@ -6,7 +6,8 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { typeDefs } from "./graphql/schema";
 import { resolvers } from "./graphql/resolvers";
 import routes from "./routes/index";
-
+import dotenv from "dotenv";
+dotenv.config({})
 import {
   generalLimiter,
   graphqlLimiter,
