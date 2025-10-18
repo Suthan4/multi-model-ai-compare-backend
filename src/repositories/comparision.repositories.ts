@@ -23,8 +23,8 @@ export class ComparisonRepository {
     limit: number = 10,
     userId?: string
   ): Promise<IComparison[]> {
-    const query = userId ? { createdBy: userId } : { isPublic: true };
-    return await Comparison.find(query).sort({ createdAt: -1 }).limit(limit);
+    // const query = userId ? { createdBy: userId } : { isPublic: true };
+    return await Comparison.find().sort({ createdAt: -1 }).limit(limit);
   }
 
   async update(
